@@ -1,4 +1,3 @@
 #! /bin/bash
-echo "Practica 1 - Informacion de redes"
+echo -ne "Practica 1 \n============================================================================\n"
 ifconfig -a
-netstat
