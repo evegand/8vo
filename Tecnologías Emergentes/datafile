@@ -1,15 +1,15 @@
-González,García,José Luis,Director General,ABC Company,Calle del Sol,12,4,Colonia del Valle,Monterrey,Nuevo León,64890,55 5555 5555,jlgonzalez@abccompany.com,01/01/1970,52
-Ramírez,Hernández,Sofía,Coordinadora de Marketing,XYZ Corp,Calle del Roble,105,,Colonia Anzures,Ciudad de México,Ciudad de México,11590,55 1234 5678,sofia.ramirez@xyzcorp.com,15/02/1985,37
-García,Rodríguez,José Eduardo,Desarrollador de Software,Software SA de CV,Calle del Águila,45,1,Colonia Lomas de Chapultepec,Ciudad de México,Ciudad de México,11000,55 9876 5432,jose.garcia@softwaresa.com,30/11/1990,31
-Pérez,Martínez,María,Analista de Datos,Data Inc,Calle del Olivo,29,,Colonia San Ángel,Guadalajara,Jalisco,45010,33 3333 3333,mariaperez@datainc.com,10/05/1988,33
-López,Juárez,Francisco,Ingeniero de Procesos,Procesos SA de CV,Calle del Laurel,17,7,Colonia del Carmen,Ciudad de México,Ciudad de México,04100,55 4444 4444,flopez@procesos.com,22/09/1978,44
-Hernández,Sánchez,Martín,Asistente de Gerencia,ABC Company,Calle del Bosque,32,,Colonia Santa Fe,Ciudad de México,Ciudad de México,01210,55 6789 0123,mhernandez@abccompany.com,12/12/1989,32
-González,Flores,Ana Karen,Diseñadora Gráfica,Design Agency,Calle del Pino,76,,Colonia del Valle,Monterrey,Nuevo León,64890,81 2345 6789,akgonzalez@designagency.com,07/07/1995,27
-Torres,Rodríguez,Luis Miguel,Abogado Corporativo,Legal Firm,Calle del Roble,105,3,Colonia Anzures,Ciudad de México,Ciudad de México,11590,55 6789 0123,lm.torres@legalfirm.com,20/03/1976,47
-Gómez,Hernández,María Fernanda,Ejecutiva de Cuentas,Advertising Agency,Calle del Zafiro,22,,Colonia Polanco,Ciudad de México,Ciudad de México,11560,55 4321 9876,fernanda.gomez@advertisingagency.com,05/11/1992,28
-Aguilar,Castillo,Juan Carlos,Ingeniero de Ventas,Ventas SA de CV,Calle del Sol,44,12,Colonia Las Águilas,Guadalajara,Jalisco,45040,33 2222 2222,jcaguilar@ventassa.com,18/09/1983,37
-Luis,García,Fernández,Director de Marketing,ABC Company,Calle del Sol,123,,Centro,Ciudad de México,Ciudad de México,06000,555-123-4567,luis.garcia@email.com,1985-03-12,36
-Ana,Jiménez,Martínez,Asistente Administrativo,XYZ Corp.,Avenida Juárez,456,302,Reforma,Ciudad Juárez,Chihuahua,32000,656-234-5678,ana.jimenez@email.com,1990-06-15,31
-Carlos,Ortega,Rodríguez,Desarrollador de Software,Acme Inc.,Calle Libertad,789,,La Estrella,Monterrey,Nuevo León,64000,818-345-6789,carlos.ortega@email.com,1995-09-22,26
-Isabel,González,Ramírez,Coordinadora de Ventas,Global Solutions,Calzada de Tlalpan,1010,,Portales Sur,Ciudad de México,Ciudad de México,03300,555-987-6543,isabel.gonzalez@email.com,1987-11-03,34
-Jorge,Rodríguez,Pérez,Analista de Datos,DataMind SA de CV,Av. Revolución,2468,1201,Tlacopac,San Ángel,Ciudad de México,01040,555-555-1212,jorge.rodriguez@email.com,1992-01-30,29
+González,García,José Luis,Director General,ABC Company,Calle del Sol,12,4,Colonia del Valle,Monterrey,Nuevo León,64890,55 5555 5555,jlgonzalez@abccompany.com,01/01/1970
+Ramírez,Hernández,Sofía,Coordinadora de Marketing,XYZ Corp,Calle del Roble,105,,Colonia Anzures,Ciudad de México,Ciudad de México,11590,55 1234 5678,sofia.ramirez@xyzcorp.com,15/02/1985
+García,Rodríguez,José Eduardo,Desarrollador de Software,Software SA de CV,Calle del Águila,45,1,Colonia Lomas de Chapultepec,Ciudad de México,Ciudad de México,11000,55 9876 5432,jose.garcia@softwaresa.com,30/11/1990
+Pérez,Martínez,María,Analista de Datos,Data Inc,Calle del Olivo,29,,Colonia San Ángel,Guadalajara,Jalisco,45010,33 3333 3333,mariaperez@datainc.com,10/05/1988
+López,Juárez,Francisco,Ingeniero de Procesos,Procesos SA de CV,Calle del Laurel,17,7,Colonia del Carmen,Ciudad de México,Ciudad de México,04100,55 4444 4444,flopez@procesos.com,22/09/1978
+Hernández,Sánchez,Martín,Asistente de Gerencia,ABC Company,Calle del Bosque,32,,Colonia Santa Fe,Ciudad de México,Ciudad de México,01210,55 6789 0123,mhernandez@abccompany.com,12/12/1989
+González,Flores,Ana Karen,Diseñadora Gráfica,Design Agency,Calle del Pino,76,,Colonia del Valle,Monterrey,Nuevo León,64890,81 2345 6789,akgonzalez@designagency.com,07/07/1995
+Torres,Rodríguez,Luis Miguel,Abogado Corporativo,Legal Firm,Calle del Roble,105,3,Colonia Anzures,Ciudad de México,Ciudad de México,11590,55 6789 0123,lm.torres@legalfirm.com,20/03/1976
+Gómez,Hernández,María Fernanda,Ejecutiva de Cuentas,Advertising Agency,Calle del Zafiro,22,,Colonia Polanco,Ciudad de México,Ciudad de México,11560,55 4321 9876,fernanda.gomez@advertisingagency.com,05/11/1992
+Aguilar,Castillo,Juan Carlos,Ingeniero de Ventas,Ventas SA de CV,Calle del Sol,44,12,Colonia Las Águilas,Guadalajara,Jalisco,45040,33 2222 2222,jcaguilar@ventassa.com,18/09/1983
+Luis,García,Fernández,Director de Marketing,ABC Company,Calle del Sol,123,,Centro,Ciudad de México,Ciudad de México,06000,555-123-4567,luis.garcia@email.com,1985-03-12
+Ana,Jiménez,Martínez,Asistente Administrativo,XYZ Corp.,Avenida Juárez,456,302,Reforma,Ciudad Juárez,Chihuahua,32000,656-234-5678,ana.jimenez@email.com,1990-06-15
+Carlos,Ortega,Rodríguez,Desarrollador de Software,Acme Inc.,Calle Libertad,789,,La Estrella,Monterrey,Nuevo León,64000,818-345-6789,carlos.ortega@email.com,1995-09-22
+Isabel,González,Ramírez,Coordinadora de Ventas,Global Solutions,Calzada de Tlalpan,1010,,Portales Sur,Ciudad de México,Ciudad de México,03300,555-987-6543,isabel.gonzalez@email.com,1987-11-03
+Jorge,Rodríguez,Pérez,Analista de Datos,DataMind SA de CV,Av. Revolución,2468,1201,Tlacopac,San Ángel,Ciudad de México,01040,555-555-1212,jorge.rodriguez@email.com,1992-01-30
