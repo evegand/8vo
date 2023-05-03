@@ -1,0 +1,19 @@
+
+Centro de Enseñanza Tecnica Industrial
+Plantel Colomos
+
+Guadalajara, Jalisco. México.
+A [fecha]
+
+A quien corresponda:
+
+Por medio del presente conducto le informo que el C. [nombre] [apellido1] [apellido2], quien desempeña el puesto de [cargo] en la empresa [empresa], ha obtenido el primer lugar en el concurso anual en Desarrollo de Software, organizado por la comunidad estudiantil. Es necesario verificar que los siguientes datos son correctos:
+
+Fecha de Nacimiento: [fechaNacimiento] ([edad] años)
+Dirección: [calle] #[numeroExt][numeroInt]. Colonia [colonia]. [municipio], [estado]. C.P.: [codigoPostal]
+Numero telefonico: [telefono]
+Correo electrónico: [correoElectronico]
+
+Atentamente,
+Jose Francisco Perez Reyes
+Ing. en Desarrollo de Software 
