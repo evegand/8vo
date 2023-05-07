@@ -10,7 +10,7 @@ def getUsers():
     today = datetime.now()
     
     # Open File
-    df = open('./datafile', 'r')
+    df = open('./datafile', 'r', encoding='utf-8')
     
     fileText = df.read()
     if fileText != "":
@@ -52,7 +52,7 @@ def getUsers():
     df.close()
     return users
 
-def createDocs():
+def createDocs(users):
     today = datetime.now().strftime('%d de %B de %Y')
     x = 1
 
@@ -85,5 +85,4 @@ def createDocs():
             f.write(doc)
         x += 1
 
-users = getUsers()
-createDocs()
+createDocs(getUsers())
