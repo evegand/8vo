@@ -342,7 +342,7 @@ QPushButton {
                  <item>
                   <widget class="QStackedWidget" name="usersStackedWidget">
                    <property name="currentIndex">
-                    <number>3</number>
+                    <number>0</number>
                    </property>
                    <widget class="QWidget" name="usersCreate">
                     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -361,9 +361,9 @@ QPushButton {
                         <property name="geometry">
                          <rect>
                           <x>0</x>
-                          <y>-145</y>
+                          <y>-348</y>
                           <width>518</width>
-                          <height>518</height>
+                          <height>618</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -372,7 +372,7 @@ QPushButton {
                            <property name="minimumSize">
                             <size>
                              <width>500</width>
-                             <height>500</height>
+                             <height>600</height>
                             </size>
                            </property>
                            <property name="styleSheet">
@@ -384,189 +384,194 @@ QPushButton {
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <widget class="QWidget" name="formLayoutWidget">
-                            <property name="geometry">
-                             <rect>
-                              <x>10</x>
-                              <y>40</y>
-                              <width>491</width>
-                              <height>461</height>
-                             </rect>
-                            </property>
-                            <layout class="QFormLayout" name="formLayout">
-                             <item row="0" column="0">
-                              <widget class="QLabel" name="nombreLabel_2">
-                               <property name="text">
-                                <string>Nombre</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="1">
-                              <widget class="QLineEdit" name="nombreLineEdit_2"/>
-                             </item>
-                             <item row="1" column="0">
-                              <widget class="QLabel" name="apellido1Label_2">
-                               <property name="text">
-                                <string>Apellido Paterno</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="1" column="1">
-                              <widget class="QLineEdit" name="apellido1LineEdit_2"/>
-                             </item>
-                             <item row="2" column="0">
-                              <widget class="QLabel" name="apellido2Label_2">
-                               <property name="text">
-                                <string>Apellido Materno</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="1">
-                              <widget class="QLineEdit" name="apellido2LineEdit_2"/>
-                             </item>
-                             <item row="3" column="0">
-                              <widget class="QLabel" name="cargoLabel_2">
-                               <property name="text">
-                                <string>Puesto</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="1">
-                              <widget class="QLineEdit" name="cargoLineEdit_2"/>
-                             </item>
-                             <item row="4" column="0">
-                              <widget class="QLabel" name="fechaNacimientoLabel_2">
-                               <property name="text">
-                                <string>Fecha de Nacimiento</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="4" column="1">
-                              <widget class="QDateEdit" name="fechaNacimientoLineEdit_2"/>
-                             </item>
-                             <item row="5" column="0">
-                              <widget class="QLabel" name="calleLabel_2">
-                               <property name="text">
-                                <string>Dirección</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="5" column="1">
-                              <widget class="QLineEdit" name="calleLineEdit_2"/>
-                             </item>
-                             <item row="6" column="0">
-                              <widget class="QLabel" name="numeroExtLabel_2">
-                               <property name="text">
-                                <string>Numero Ext</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="6" column="1">
-                              <widget class="QLineEdit" name="numeroExtLineEdit_2"/>
-                             </item>
-                             <item row="7" column="0">
-                              <widget class="QLabel" name="numeroIntLabel_2">
-                               <property name="text">
-                                <string>Numero Int</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="7" column="1">
-                              <widget class="QLineEdit" name="numeroIntLineEdit_2"/>
-                             </item>
-                             <item row="8" column="0">
-                              <widget class="QLabel" name="coloniaLabel_2">
-                               <property name="text">
-                                <string>Colonia</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="8" column="1">
-                              <widget class="QLineEdit" name="coloniaLineEdit_2"/>
-                             </item>
-                             <item row="10" column="0">
-                              <widget class="QLabel" name="estadoLabel_2">
-                               <property name="text">
-                                <string>Estado</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="10" column="1">
-                              <widget class="QLineEdit" name="estadoLineEdit_2"/>
-                             </item>
-                             <item row="11" column="0">
-                              <widget class="QLabel" name="codigoPostalLabel_2">
-                               <property name="text">
-                                <string>Codigo Postal</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="11" column="1">
-                              <widget class="QLineEdit" name="codigoPostalLineEdit_2"/>
-                             </item>
-                             <item row="12" column="0">
-                              <widget class="QLabel" name="telefonoLabel_2">
-                               <property name="text">
-                                <string>Telefono</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="12" column="1">
-                              <widget class="QLineEdit" name="telefonoLineEdit_2"/>
-                             </item>
-                             <item row="13" column="0">
-                              <widget class="QLabel" name="correoElectronicoLabel_2">
-                               <property name="text">
-                                <string>Correo Electronico</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="13" column="1">
-                              <widget class="QLineEdit" name="correoElectronicoLineEdit_2"/>
-                             </item>
-                             <item row="14" column="0">
-                              <widget class="QLabel" name="empresaLabel_2">
-                               <property name="text">
-                                <string>Empresa</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="14" column="1">
-                              <widget class="QLineEdit" name="empresaLineEdit_2"/>
-                             </item>
-                             <item row="9" column="1">
-                              <widget class="QLineEdit" name="municipioLineEdit_2"/>
-                             </item>
-                             <item row="9" column="0">
-                              <widget class="QLabel" name="municipioLabel_2">
-                               <property name="text">
-                                <string>Ciudad</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                           <widget class="QLabel" name="formLabel">
-                            <property name="geometry">
-                             <rect>
-                              <x>50</x>
-                              <y>10</y>
-                              <width>421</width>
-                              <height>21</height>
-                             </rect>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <pointsize>12</pointsize>
-                              <weight>11</weight>
-                              <italic>false</italic>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Llena el siguiente formulario para agregar un nuevo Usuario</string>
-                            </property>
-                           </widget>
+                           <layout class="QVBoxLayout" name="verticalLayout_10">
+                            <item>
+                             <widget class="QLabel" name="formLabel">
+                              <property name="font">
+                               <font>
+                                <pointsize>12</pointsize>
+                                <weight>11</weight>
+                                <italic>false</italic>
+                                <bold>false</bold>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>Llena el siguiente formulario para agregar un nuevo Usuario</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <layout class="QFormLayout" name="formLayout">
+                              <item row="0" column="0">
+                               <widget class="QLabel" name="nombreLabel_2">
+                                <property name="text">
+                                 <string>Nombre</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="1">
+                               <widget class="QLineEdit" name="nombreLineEdit_2"/>
+                              </item>
+                              <item row="1" column="0">
+                               <widget class="QLabel" name="apellido1Label_2">
+                                <property name="text">
+                                 <string>Apellido Paterno</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="1">
+                               <widget class="QLineEdit" name="apellido1LineEdit_2"/>
+                              </item>
+                              <item row="2" column="0">
+                               <widget class="QLabel" name="apellido2Label_2">
+                                <property name="text">
+                                 <string>Apellido Materno</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="1">
+                               <widget class="QLineEdit" name="apellido2LineEdit_2"/>
+                              </item>
+                              <item row="3" column="0">
+                               <widget class="QLabel" name="cargoLabel_2">
+                                <property name="text">
+                                 <string>Puesto</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="3" column="1">
+                               <widget class="QLineEdit" name="cargoLineEdit_2"/>
+                              </item>
+                              <item row="4" column="0">
+                               <widget class="QLabel" name="fechaNacimientoLabel_2">
+                                <property name="text">
+                                 <string>Fecha de Nacimiento</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="4" column="1">
+                               <widget class="QDateEdit" name="fechaNacimientoLineEdit_2"/>
+                              </item>
+                              <item row="5" column="0">
+                               <widget class="QLabel" name="calleLabel_2">
+                                <property name="text">
+                                 <string>Dirección</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="5" column="1">
+                               <widget class="QLineEdit" name="calleLineEdit_2"/>
+                              </item>
+                              <item row="6" column="0">
+                               <widget class="QLabel" name="numeroExtLabel_2">
+                                <property name="text">
+                                 <string>Numero Ext</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="6" column="1">
+                               <widget class="QLineEdit" name="numeroExtLineEdit_2"/>
+                              </item>
+                              <item row="7" column="0">
+                               <widget class="QLabel" name="numeroIntLabel_2">
+                                <property name="text">
+                                 <string>Numero Int</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="7" column="1">
+                               <widget class="QLineEdit" name="numeroIntLineEdit_2"/>
+                              </item>
+                              <item row="8" column="0">
+                               <widget class="QLabel" name="coloniaLabel_2">
+                                <property name="text">
+                                 <string>Colonia</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="8" column="1">
+                               <widget class="QLineEdit" name="coloniaLineEdit_2"/>
+                              </item>
+                              <item row="10" column="0">
+                               <widget class="QLabel" name="estadoLabel_2">
+                                <property name="text">
+                                 <string>Estado</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="10" column="1">
+                               <widget class="QLineEdit" name="estadoLineEdit_2"/>
+                              </item>
+                              <item row="11" column="0">
+                               <widget class="QLabel" name="codigoPostalLabel_2">
+                                <property name="text">
+                                 <string>Codigo Postal</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="11" column="1">
+                               <widget class="QLineEdit" name="codigoPostalLineEdit_2"/>
+                              </item>
+                              <item row="12" column="0">
+                               <widget class="QLabel" name="telefonoLabel_2">
+                                <property name="text">
+                                 <string>Telefono</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="12" column="1">
+                               <widget class="QLineEdit" name="telefonoLineEdit_2"/>
+                              </item>
+                              <item row="13" column="0">
+                               <widget class="QLabel" name="correoElectronicoLabel_2">
+                                <property name="text">
+                                 <string>Correo Electronico</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="13" column="1">
+                               <widget class="QLineEdit" name="correoElectronicoLineEdit_2"/>
+                              </item>
+                              <item row="14" column="0">
+                               <widget class="QLabel" name="empresaLabel_2">
+                                <property name="text">
+                                 <string>Empresa</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="14" column="1">
+                               <widget class="QLineEdit" name="empresaLineEdit_2"/>
+                              </item>
+                              <item row="9" column="1">
+                               <widget class="QLineEdit" name="municipioLineEdit_2"/>
+                              </item>
+                              <item row="9" column="0">
+                               <widget class="QLabel" name="municipioLabel_2">
+                                <property name="text">
+                                 <string>Ciudad</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </item>
+                            <item>
+                             <widget class="QPushButton" name="addUserBtn">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>34</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">background-color: rgb(51, 209, 122);
+color: #fff;</string>
+                              </property>
+                              <property name="text">
+                               <string>Agregar usuario</string>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
                           </widget>
                          </item>
                         </layout>

@@ -12,9 +12,8 @@ class Data():
 
     def createUser(self, user_data):
         cursor = self.db.cursor()
-        sql = "INSERT INTO datos_empleados (id, nombre, apellido_paterno, apellido_materno, puesto, empresa, direccion, colonia, numero_interior, ciudad, estado, codigo_postal, telefono, correo_electronico, fecha_nacimiento) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        sql = "INSERT INTO datos_empleados (nombre, apellido_paterno, apellido_materno, puesto, empresa, calle, colonia, numero_exterior, numero_interior, ciudad, estado, codigo_postal, telefono, email, fecha_nacimiento) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         values = (
-            user_data['id'],
             user_data['nombre'],
             user_data['apellido1'],
             user_data['apellido2'],
@@ -22,6 +21,7 @@ class Data():
             user_data['empresa'],
             user_data['calle'],
             user_data['colonia'],
+            user_data['numeroExt'],
             user_data['numeroInt'],
             user_data['ciudad'],
             user_data['estado'],

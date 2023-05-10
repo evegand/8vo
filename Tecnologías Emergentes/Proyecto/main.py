@@ -27,6 +27,7 @@ class Main(QMainWindow):
         self.deleteBtn.clicked.connect(lambda: self.usersStackedWidget.setCurrentWidget(self.usersDelete))
 
         # Users Create
+        self.addUserBtn.clicked.connect(self.crearUsuario)
         # Users Read
         self.refreshBtn.clicked.connect(self.mostrarUsuarios)
         # Users Update
@@ -68,6 +69,49 @@ class Main(QMainWindow):
             # 17
             tablerow += 1
             id += 1
+
+    def crearUsuario(self):
+        strDate = datetime.strptime(self.fechaNacimientoLineEdit_2.text(), '%d/%m/%y')
+        birthDate = datetime.combine(strDate, time.min)
+        print(birthDate)
+        age = datetime.now() - birthDate
+        age = math.floor(int(str(age).split(" ")[0]) / 365)
+
+        userData = {
+            'nombre': self.nombreLineEdit_2.text(),
+            'apellido1': self.apellido1LineEdit_2.text(),
+            'apellido2': self.apellido2LineEdit_2.text(),
+            'cargo': self.cargoLineEdit_2.text(),
+            'empresa': self.empresaLineEdit_2.text(),
+            'calle': self.calleLineEdit_2.text(),
+            'numeroExt': self.numeroExtLineEdit_2.text(),
+            'numeroInt': self.numeroIntLineEdit_2.text(),
+            'colonia': self.coloniaLineEdit_2.text(),
+            'ciudad': self.municipioLineEdit_2.text(),
+            'estado': self.estadoLineEdit_2.text(),
+            'codigoPostal': self.codigoPostalLineEdit_2.text(),
+            'telefono': self.telefonoLineEdit_2.text(),
+            'correoElectronico': self.correoElectronicoLineEdit_2.text(),
+            'fechaNacimiento': birthDate
+        }
+        print(userData)
+        self.db.createUser(userData)
+
+        self.nombreLineEdit_2.clear()
+        self.apellido1LineEdit_2.clear()
+        self.apellido2LineEdit_2.clear()
+        self.cargoLineEdit_2.clear()
+        self.empresaLineEdit_2.clear()
+        self.calleLineEdit_2.clear()
+        self.numeroExtLineEdit_2.clear()
+        self.numeroIntLineEdit_2.clear()
+        self.coloniaLineEdit_2.clear()
+        self.municipioLineEdit_2.clear()
+        self.estadoLineEdit_2.clear()
+        self.codigoPostalLineEdit_2.clear()
+        self.telefonoLineEdit_2.clear()
+        self.correoElectronicoLineEdit_2.clear()
+        self.fechaNacimientoLineEdit_2.clear()
 
 
 if __name__ == "__main__":
