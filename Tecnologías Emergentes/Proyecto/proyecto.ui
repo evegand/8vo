@@ -342,7 +342,7 @@ QPushButton {
                  <item>
                   <widget class="QStackedWidget" name="usersStackedWidget">
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>3</number>
                    </property>
                    <widget class="QWidget" name="usersCreate">
                     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -361,9 +361,9 @@ QPushButton {
                         <property name="geometry">
                          <rect>
                           <x>0</x>
-                          <y>0</y>
+                          <y>-145</y>
                           <width>518</width>
-                          <height>1218</height>
+                          <height>518</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -484,16 +484,6 @@ QPushButton {
                              <item row="8" column="1">
                               <widget class="QLineEdit" name="coloniaLineEdit_2"/>
                              </item>
-                             <item row="9" column="0">
-                              <widget class="QLabel" name="municipioLabel_2">
-                               <property name="text">
-                                <string>Municipio</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="9" column="1">
-                              <widget class="QLineEdit" name="municipioLineEdit_2"/>
-                             </item>
                              <item row="10" column="0">
                               <widget class="QLabel" name="estadoLabel_2">
                                <property name="text">
@@ -544,6 +534,16 @@ QPushButton {
                              <item row="14" column="1">
                               <widget class="QLineEdit" name="empresaLineEdit_2"/>
                              </item>
+                             <item row="9" column="1">
+                              <widget class="QLineEdit" name="municipioLineEdit_2"/>
+                             </item>
+                             <item row="9" column="0">
+                              <widget class="QLabel" name="municipioLabel_2">
+                               <property name="text">
+                                <string>Ciudad</string>
+                               </property>
+                              </widget>
+                             </item>
                             </layout>
                            </widget>
                            <widget class="QLabel" name="formLabel">
@@ -576,7 +576,7 @@ QPushButton {
                     </layout>
                    </widget>
                    <widget class="QWidget" name="usersRead">
-                    <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,7,1">
+                    <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,0,1">
                      <item>
                       <widget class="QLabel" name="label">
                        <property name="font">
@@ -646,7 +646,7 @@ QPushButton {
                        </column>
                        <column>
                         <property name="text">
-                         <string>municipio</string>
+                         <string>ciudad</string>
                         </property>
                        </column>
                        <column>
@@ -707,8 +707,8 @@ QPushButton {
                         <property name="geometry">
                          <rect>
                           <x>0</x>
-                          <y>0</y>
-                          <width>527</width>
+                          <y>-117</y>
+                          <width>518</width>
                           <height>568</height>
                          </rect>
                         </property>
@@ -830,16 +830,6 @@ QPushButton {
                              <item row="8" column="1">
                               <widget class="QLineEdit" name="coloniaLineEdit_3"/>
                              </item>
-                             <item row="9" column="0">
-                              <widget class="QLabel" name="municipioLabel_3">
-                               <property name="text">
-                                <string>Municipio</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="9" column="1">
-                              <widget class="QLineEdit" name="municipioLineEdit_3"/>
-                             </item>
                              <item row="10" column="0">
                               <widget class="QLabel" name="estadoLabel_3">
                                <property name="text">
@@ -889,6 +879,16 @@ QPushButton {
                              </item>
                              <item row="14" column="1">
                               <widget class="QLineEdit" name="empresaLineEdit_3"/>
+                             </item>
+                             <item row="9" column="1">
+                              <widget class="QLineEdit" name="municipioLineEdit_3"/>
+                             </item>
+                             <item row="9" column="0">
+                              <widget class="QLabel" name="municipioLabel_3">
+                               <property name="text">
+                                <string>Ciudad</string>
+                               </property>
+                              </widget>
                              </item>
                             </layout>
                            </widget>
@@ -1079,7 +1079,7 @@ QPushButton:clicked {
                         </column>
                         <column>
                          <property name="text">
-                          <string>municipio</string>
+                          <string>ciudad</string>
                          </property>
                         </column>
                         <column>
@@ -1277,6 +1277,9 @@ border-radius: 20px;
                    <width>561</width>
                    <height>300</height>
                   </rect>
+                 </property>
+                 <property name="currentIndex">
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="usersCreate_2"/>
                  <widget class="QWidget" name="usersRead_2"/>
