@@ -1,9 +1,13 @@
 import sys
+from datetime import time, datetime
+import math
+import locale
 from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.uic import loadUi
-from data import Data;
+from data import Data
+locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 class Main(QMainWindow):
     def __init__(self):
@@ -41,7 +45,10 @@ class Main(QMainWindow):
         tablerow = 0
         id = 1
         for row in datos:
-            self.usersTable.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(id))
+            birthDate = datetime.combine(row[15], time.min)
+            age = datetime.now() - birthDate
+            age = math.floor(int(str(age).split(" ")[0]) / 365)
+
             self.usersTable.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(row[1]))
             self.usersTable.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row[2]))
             self.usersTable.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(row[3]))
@@ -52,6 +59,12 @@ class Main(QMainWindow):
             self.usersTable.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(row[8]))
             self.usersTable.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(row[9]))
             self.usersTable.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(row[10]))
+            self.usersTable.setItem(tablerow, 11, QtWidgets.QTableWidgetItem(row[11]))
+            self.usersTable.setItem(tablerow, 12, QtWidgets.QTableWidgetItem(row[12]))
+            self.usersTable.setItem(tablerow, 13, QtWidgets.QTableWidgetItem(row[13]))
+            self.usersTable.setItem(tablerow, 14, QtWidgets.QTableWidgetItem(row[14]))
+            self.usersTable.setItem(tablerow, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+            self.usersTable.setItem(tablerow, 16, QtWidgets.QTableWidgetItem(str(age) + " años"))
             # 17
             tablerow += 1
             id += 1
