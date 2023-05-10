@@ -342,7 +342,7 @@ QPushButton {
                  <item>
                   <widget class="QStackedWidget" name="usersStackedWidget">
                    <property name="currentIndex">
-                    <number>2</number>
+                    <number>0</number>
                    </property>
                    <widget class="QWidget" name="usersCreate">
                     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1009,35 +1009,13 @@ QPushButton:clicked {
                          <string>Eliminar Usuario</string>
                         </property>
                        </widget>
-                       <widget class="QWidget" name="formLayoutWidget_5">
-                        <property name="geometry">
-                         <rect>
-                          <x>20</x>
-                          <y>20</y>
-                          <width>491</width>
-                          <height>56</height>
-                         </rect>
-                        </property>
-                        <layout class="QFormLayout" name="formLayout_5">
-                         <item row="1" column="1">
-                          <widget class="QLabel" name="findByIDLabel_2">
-                           <property name="text">
-                            <string>Buscar usuario por ID</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="2" column="1">
-                          <widget class="QLineEdit" name="findByIDLineEdit_2"/>
-                         </item>
-                        </layout>
-                       </widget>
                        <widget class="QTableWidget" name="usersTable_2">
                         <property name="geometry">
                          <rect>
                           <x>20</x>
-                          <y>90</y>
+                          <y>70</y>
                           <width>491</width>
-                          <height>121</height>
+                          <height>141</height>
                          </rect>
                         </property>
                         <column>
@@ -1125,6 +1103,57 @@ QPushButton:clicked {
                           <string>edad</string>
                          </property>
                         </column>
+                       </widget>
+                       <widget class="QFrame" name="frame_6">
+                        <property name="geometry">
+                         <rect>
+                          <x>20</x>
+                          <y>10</y>
+                          <width>491</width>
+                          <height>55</height>
+                         </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(255, 255, 255);</string>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="5,2">
+                         <item>
+                          <layout class="QFormLayout" name="formLayout_4">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="findByIDLabel_2">
+                             <property name="text">
+                              <string>Buscar usuario por ID</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="findByIDLineEdit_2"/>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="userFindBtn2">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>32</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(246, 245, 244);</string>
+                           </property>
+                           <property name="text">
+                            <string>Buscar</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </widget>
                       </widget>
                      </item>
