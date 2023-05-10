@@ -7,6 +7,7 @@ from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.uic import loadUi
 from data import Data
+from PyQt5.QtWidgets import QMessageBox
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 class Main(QMainWindow):
@@ -31,6 +32,8 @@ class Main(QMainWindow):
         # Users Read
         self.refreshBtn.clicked.connect(self.mostrarUsuarios)
         # Users Update
+        self.userFindBtn.clicked.connect(self.encontrarUsuario)
+        self.saveChangesBtn.clicked.connect(self.actualizarUsuario)
         # Users Delete
         """
         self.createBtn.clicked.connect(self.usersCreate)
@@ -113,6 +116,76 @@ class Main(QMainWindow):
         self.correoElectronicoLineEdit_2.clear()
         self.fechaNacimientoLineEdit_2.clear()
 
+    def encontrarUsuario(self):
+        userId = self.findByIDLineEdit.text()
+        self.user = self.db.searchByID([userId])
+        if len(self.user) != 0:
+            self.nombreLineEdit_3.setText(self.user[0][1])
+            self.apellido1LineEdit_3.setText(self.user[0][2])
+            self.apellido2LineEdit_3.setText(self.user[0][3])
+            self.cargoLineEdit_3.setText(self.user[0][4])
+            self.empresaLineEdit_3.setText(self.user[0][5])
+            self.calleLineEdit_3.setText(self.user[0][6])
+            self.numeroExtLineEdit_3.setText(self.user[0][7])
+            self.numeroIntLineEdit_3.setText(self.user[0][8])
+            self.coloniaLineEdit_3.setText(self.user[0][9])
+            self.municipioLineEdit_3.setText(self.user[0][10])
+            self.estadoLineEdit_3.setText(self.user[0][11])
+            self.codigoPostalLineEdit_3.setText(self.user[0][12])
+            self.telefonoLineEdit_3.setText(self.user[0][13])
+            self.correoElectronicoLineEdit_3.setText(self.user[0][14])
+            self.fechaNacimientoLineEdit_3.setDate(self.user[0][15])
+        else:
+            self.nombreLineEdit_3.clear()
+            self.apellido1LineEdit_3.clear()
+            self.apellido2LineEdit_3.clear()
+            self.cargoLineEdit_3.clear()
+            self.empresaLineEdit_3.clear()
+            self.calleLineEdit_3.clear()
+            self.numeroExtLineEdit_3.clear()
+            self.numeroIntLineEdit_3.clear()
+            self.coloniaLineEdit_3.clear()
+            self.municipioLineEdit_3.clear()
+            self.estadoLineEdit_3.clear()
+            self.codigoPostalLineEdit_3.clear()
+            self.telefonoLineEdit_3.clear()
+            self.correoElectronicoLineEdit_3.clear()
+            self.fechaNacimientoLineEdit_3.clear()
+
+            alert = QMessageBox()
+            alert.setIcon(QMessageBox.Information)
+            alert.setWindowTitle("Usuario no encontrado")
+            alert.setText("No existe un usuario con ese ID todavia.")
+            alert.setStandardButtons(QMessageBox.Ok)
+            alert.exec_()
+
+    def actualizarUsuario(self):
+        userId = self.findByIDLineEdit.text()
+        strDate = datetime.strptime(self.fechaNacimientoLineEdit_3.text(), '%d/%m/%y')
+        birthDate = datetime.combine(strDate, time.min)
+        print(birthDate)
+        age = datetime.now() - birthDate
+        age = math.floor(int(str(age).split(" ")[0]) / 365)
+
+        userData = {
+            'nombre': self.nombreLineEdit_3.text(),
+            'apellido1': self.apellido1LineEdit_3.text(),
+            'apellido2': self.apellido2LineEdit_3.text(),
+            'cargo': self.cargoLineEdit_3.text(),
+            'empresa': self.empresaLineEdit_3.text(),
+            'calle': self.calleLineEdit_3.text(),
+            'numeroExt': self.numeroExtLineEdit_3.text(),
+            'numeroInt': self.numeroIntLineEdit_3.text(),
+            'colonia': self.coloniaLineEdit_3.text(),
+            'ciudad': self.municipioLineEdit_3.text(),
+            'estado': self.estadoLineEdit_3.text(),
+            'codigoPostal': self.codigoPostalLineEdit_3.text(),
+            'telefono': self.telefonoLineEdit_3.text(),
+            'correoElectronico': self.correoElectronicoLineEdit_3.text(),
+            'fechaNacimiento': birthDate
+        }
+        print(userData)
+        self.db.updateUser(userId, userData)            
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

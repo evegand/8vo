@@ -42,17 +42,18 @@ class Data():
             print(row)
         return result
     
-    def updateUsers(self, user_id, new_data):
+    def updateUser(self, user_id, new_data):
         cursor = self.db.cursor()
-        sql = "UPDATE datos_empleados SET nombre=%s, apellido_paterno=%s, apellido_materno=%s, puesto=%s, empresa=%s, direccion=%s, colonia=%s, numero_interior=%s, ciudad=%s, estado=%s, codigo_postal=%s, telefono=%s, correo_electronico=%s, fecha_nacimiento=%s WHERE id=%s"
+        sql = "UPDATE datos_empleados SET nombre=%s, apellido_paterno=%s, apellido_materno=%s, puesto=%s, empresa=%s, calle=%s, colonia=%s, numero_exterior=%s, numero_interior=%s, ciudad=%s, estado=%s, codigo_postal=%s, telefono=%s, email=%s, fecha_nacimiento=%s WHERE id=%s"
         values = (
             new_data['nombre'],
             new_data['apellido1'],
             new_data['apellido2'],
             new_data['cargo'],
             new_data['empresa'],
-            new_data['direccion'],
+            new_data['calle'],
             new_data['colonia'],
+            new_data['numeroExt'],
             new_data['numeroInt'],
             new_data['ciudad'],
             new_data['estado'],
@@ -74,10 +75,10 @@ class Data():
         self.db.commit()
         print(cursor.rowcount, "registro(s) eliminado(s).")
 
-    def searchByName(self, name):
+    def searchByID(self, id):
        cursor = self.db.cursor()
-       sql = 'SELECT * FROM datos_empleados WHERE name LIKE "%s"'
-       value = (name)
+       sql = 'SELECT * FROM datos_empleados WHERE id = %s'
+       value = (id)
        cursor.execute(sql, value)
        result = cursor.fetchall()
        return result
