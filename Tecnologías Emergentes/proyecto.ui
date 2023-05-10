@@ -342,7 +342,7 @@ QPushButton {
                  <item>
                   <widget class="QStackedWidget" name="usersStackedWidget">
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="usersCreate">
                     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -363,7 +363,7 @@ QPushButton {
                           <x>0</x>
                           <y>0</y>
                           <width>518</width>
-                          <height>1218</height>
+                          <height>518</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -708,7 +708,7 @@ QPushButton {
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>527</width>
+                          <width>518</width>
                           <height>568</height>
                          </rect>
                         </property>
