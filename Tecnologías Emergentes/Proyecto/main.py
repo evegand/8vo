@@ -35,6 +35,8 @@ class Main(QMainWindow):
         self.userFindBtn.clicked.connect(self.encontrarUsuario)
         self.saveChangesBtn.clicked.connect(self.actualizarUsuario)
         # Users Delete
+        self.userFindBtn2.clicked.connect(self.encontrarUsuario_borrar)
+
         """
         self.createBtn.clicked.connect(self.usersCreate)
         self.readBtn.clicked.connect(self.usersRead)
@@ -186,6 +188,39 @@ class Main(QMainWindow):
         }
         print(userData)
         self.db.updateUser(userId, userData)            
+
+    def encontrarUsuario_borrar(self):
+        userId = self.findByIDLineEdit_2.text()
+        self.user = self.db.searchByID([userId])
+        i = len(self.user)
+        self.usersTable_2.setRowCount(i)
+        tablerow = 0
+        id = 1
+        for row in datos:
+            birthDate = datetime.combine(row[15], time.min)
+            age = datetime.now() - birthDate
+            age = math.floor(int(str(age).split(" ")[0]) / 365)
+
+            self.usersTable_2.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.usersTable_2.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.usersTable_2.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(row[3]))
+            self.usersTable_2.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(row[4]))
+            self.usersTable_2.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(row[5]))
+            self.usersTable_2.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(row[6]))
+            self.usersTable_2.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(row[7]))
+            self.usersTable_2.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(row[8]))
+            self.usersTable_2.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(row[9]))
+            self.usersTable_2.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(row[10]))
+            self.usersTable_2.setItem(tablerow, 11, QtWidgets.QTableWidgetItem(row[11]))
+            self.usersTable_2.setItem(tablerow, 12, QtWidgets.QTableWidgetItem(row[12]))
+            self.usersTable_2.setItem(tablerow, 13, QtWidgets.QTableWidgetItem(row[13]))
+            self.usersTable_2.setItem(tablerow, 14, QtWidgets.QTableWidgetItem(row[14]))
+            self.usersTable_2.setItem(tablerow, 15, QtWidgets.QTableWidgetItem(str(row[15])))
+            self.usersTable_2.setItem(tablerow, 16, QtWidgets.QTableWidgetItem(str(age) + " años"))
+            # 17
+            tablerow += 1
+            id += 1
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
