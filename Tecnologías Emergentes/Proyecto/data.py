@@ -1,14 +1,14 @@
 import mysql.connector
 
 class Data():
-   def __init__(self):
-    # Conexión a la base de datos
-    self.db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="@Eve.12300217",
-        database="proyecto"
-    )
+    def __init__(self):
+        # Conexión a la base de datos
+        self.db = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="@Eve.12300217",
+            database="proyecto"
+        )
 
     def createUser(self, user_data):
         cursor = self.db.cursor()
@@ -40,6 +40,7 @@ class Data():
         result = cursor.fetchall()
         for row in result:
             print(row)
+        return result
     
     def updateUsers(self, user_id, new_data):
         cursor = self.db.cursor()
