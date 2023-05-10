@@ -976,7 +976,7 @@ QPushButton:clicked {
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <widget class="QPushButton" name="saveBtn_2">
+                       <widget class="QPushButton" name="deleteNowBtn">
                         <property name="geometry">
                          <rect>
                           <x>20</x>
