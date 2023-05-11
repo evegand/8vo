@@ -277,35 +277,115 @@ class Main(QMainWindow):
         }
         print(newDoc)
         self.db.createNewDoc(newDoc)
+
+        self.contenidoTextEdit.clear()
+        self.tituloLineEdit.clear()
+
         fileTitles = self.db.getTitles()
         list = [str(item[0]) for item in fileTitles]
         self.archivoComboBox.clear()
         self.archivoComboBox.addItems(list)
+        self.archivoComboBox.currentIndex = 0
         self.tituloComboBox.clear()
         self.tituloComboBox.addItems(list)
+        self.tituloComboBox.currentIndex = 0
         self.tituloComboBox_2.clear()
         self.tituloComboBox_2.addItems(list)
+        self.tituloComboBox_2.currentIndex = 0
+
 
     def encontrarDocumento(self):
+        fileTitles = self.db.getTitles()
+        list = [str(item[0]) for item in fileTitles]
+        self.archivoComboBox.clear()
+        self.archivoComboBox.addItems(list)
+        self.archivoComboBox.currentIndex = 0
+        self.tituloComboBox.clear()
+        self.tituloComboBox.addItems(list)
+        self.tituloComboBox.currentIndex = 0
+        self.tituloComboBox_2.clear()
+        self.tituloComboBox_2.addItems(list)
+        self.tituloComboBox_2.currentIndex = 0
+
         cont = self.db.getFullDocument([self.tituloComboBox.currentText()])
-        contenido = str(cont[0]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        print(cont)
+        titulo = str(cont[0][0]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        contenido = str(cont[0][1]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        self.tituloLineEdit_2.setText(titulo)
         self.contenidoTextEdit_2.setText(contenido)
 
     def actualizarDocumento(self):
         tituloComboBox = self.tituloComboBox.currentText()
         updatedDoc = {
-            'titulo': tituloComboBox,
+            'titulo': self.tituloLineEdit_2.text(),
             'contenido': self.contenidoTextEdit_2.toPlainText()
         }
+        self.db.updateDocument(tituloComboBox, updatedDoc)
 
+        self.tituloLineEdit_2.clear()
+        self.contenidoTextEdit_2.clear()
+
+        fileTitles = self.db.getTitles()
+        list = [str(item[0]) for item in fileTitles]
+        self.archivoComboBox.clear()
+        self.archivoComboBox.addItems(list)
+        self.archivoComboBox.currentIndex = 0
+        self.tituloComboBox.clear()
+        self.tituloComboBox.addItems(list)
+        self.tituloComboBox.currentIndex = 0
+        self.tituloComboBox_2.clear()
+        self.tituloComboBox_2.addItems(list)
+        self.tituloComboBox_2.currentIndex = 0
 
     def encontrarDocumento_2(self):
+        fileTitles = self.db.getTitles()
+        list = [str(item[0]) for item in fileTitles]
+        self.archivoComboBox.clear()
+        self.archivoComboBox.addItems(list)
+        self.archivoComboBox.currentIndex = 0
+        self.tituloComboBox.clear()
+        self.tituloComboBox.addItems(list)
+        self.tituloComboBox.currentIndex = 0
+        self.tituloComboBox_2.clear()
+        self.tituloComboBox_2.addItems(list)
+        self.tituloComboBox_2.currentIndex = 0
+
         cont = self.db.getFullDocument([self.tituloComboBox_2.currentText()])
-        contenido = str(cont[0]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        contenido = str(cont[0][1]).replace("\\n", "\n").replace("('", "").replace("',)", "")
         self.contenidoTextEdit_3.setText(contenido)
 
     def eliminarDocumento(self):
+        titulo = self.tituloComboBox_2.currentText()
+        alert = QMessageBox()
+        alert.setIcon(QMessageBox.Question)
+        alert.setWindowTitle("Eliminar usuario")
+        alert.setText("¿Estás seguro que deseas realizar esta acción?")
+        alert.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        response = alert.exec()
 
+        if response == QMessageBox.Yes:
+            self.contenidoTextEdit_3.clear()
+
+            fileTitles = self.db.getTitles()
+            list = [str(item[0]) for item in fileTitles]
+            self.archivoComboBox.clear()
+            self.archivoComboBox.addItems(list)
+            self.archivoComboBox.currentIndex = 0
+            self.tituloComboBox.clear()
+            self.tituloComboBox.addItems(list)
+            self.tituloComboBox.currentIndex = 0
+            self.tituloComboBox_2.clear()
+            self.tituloComboBox_2.addItems(list)
+            self.tituloComboBox_2.currentIndex = 0
+
+            self.db.deleteDocument(titulo)
+
+            alert = QMessageBox()
+            alert.setIcon(QMessageBox.Information)
+            alert.setWindowTitle("Documento eliminado")
+            alert.setText("El documento ha sido eliminado exitosamente.")
+            alert.setStandardButtons(QMessageBox.Ok)
+            alert.exec_()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

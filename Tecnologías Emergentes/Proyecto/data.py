@@ -98,7 +98,7 @@ class Data():
 
     def getTitles(self):
         cursor = self.db.cursor()
-        sql = "SELECT titulo FROM documentos ORDER BY id DESC"
+        sql = "SELECT titulo FROM documentos"
         cursor.execute(sql)
         result = cursor.fetchall()
         for row in result:
@@ -107,19 +107,29 @@ class Data():
     
     def getFullDocument(self, name):
         cursor = self.db.cursor()
-        sql = "SELECT contenido FROM documentos WHERE titulo = %s"
+        sql = "SELECT titulo, contenido FROM documentos WHERE titulo = %s"
         value = (name)
         cursor.execute(sql, value)
         result = cursor.fetchall()
         return result
 
-    def updateDocument(self, id, new_data):
+    def updateDocument(self, title, new_data):
         cursor = self.db.cursor()
-        sql = "UPDATE documentos SET titulo=%s, contenido=%s WHERE id=%s"
+        sql = "UPDATE documentos SET titulo=%s, contenido=%s WHERE titulo=%s"
         values = (
             new_data['titulo'],
-            new_data['contenido']
+            new_data['contenido'],
+            title
         )
         cursor.execute(sql, values)
         self.db.commit()
         print(cursor.rowcount, "registro(s) actualizado(s).")
+
+
+    def deleteDocument(self, title):
+        cursor = self.db.cursor()
+        sql = "DELETE FROM documentos WHERE titulo = %s"
+        value = (title,)
+        cursor.execute(sql, value)
+        self.db.commit()
+        print(cursor.rowcount, "documento(s) eliminado(s).")
