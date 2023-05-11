@@ -49,8 +49,15 @@ class Main(QMainWindow):
         fileTitles = self.db.getTitles()
         list = [str(item[0]) for item in fileTitles]
         self.archivoComboBox.addItems(list)
+
         self.paraComboBox.addItems(['Un usuario', 'Todos los usuarios'])
         self.paraComboBox.currentIndexChanged.connect(self.comboBoxIndexChanged)
+
+        rawUserList = self.db.getUserList()
+        userList = [str(item[0] + " " + item[1] + " " + item[2]) for item in rawUserList]
+        self.usuarioComboBox.addItems(userList)
+
+        self.pushButton.clicked.connect(self.crearCorrespondencia)
         # New Doc
         self.saveNewDocBtn.clicked.connect(self.guardarDocumento)
         # Update Doc
@@ -64,9 +71,9 @@ class Main(QMainWindow):
     
     def comboBoxIndexChanged(self):
         if self.paraComboBox.currentText() == 'Todos los usuarios':
-            self.usuarioLineEdit.setEnabled(False)
+            self.usuarioComboBox.setEnabled(False)
         else:
-            self.usuarioLineEdit.setEnabled(True)
+            self.usuarioComboBox.setEnabled(True)
 
     def mostrarUsuarios(self):
         datos = self.db.readUsers()
@@ -268,7 +275,6 @@ class Main(QMainWindow):
                 alert.setStandardButtons(QMessageBox.Ok)
                 alert.exec_()
 
-
     def guardarDocumento(self):
         newDoc = {
             'title': self.tituloLineEdit.text(),
@@ -292,7 +298,6 @@ class Main(QMainWindow):
         self.tituloComboBox_2.clear()
         self.tituloComboBox_2.addItems(list)
         self.tituloComboBox_2.currentIndex = 0
-
 
     def encontrarDocumento(self):
         fileTitles = self.db.getTitles()
@@ -386,6 +391,74 @@ class Main(QMainWindow):
             alert.setText("El documento ha sido eliminado exitosamente.")
             alert.setStandardButtons(QMessageBox.Ok)
             alert.exec_()
+
+    def crearCorrespondencia(self):
+        archivo = self.archivoComboBox.currentText()
+        today = datetime.now().strftime('%d de %B de %Y')
+
+        FileContent = self.db.getFullDocument([archivo])
+        print(FileContent, "\n")
+
+        if self.paraComboBox.currentText() == "Todos los usuarios":
+            usersData = self.db.readUsers()
+            print(usersData)
+            x = 1
+            for user in usersData:
+                birthDate = datetime.combine(user[15], time.min)
+                age = datetime.now() - birthDate
+                age = math.floor(int(str(age).split(" ")[0]) / 365)
+
+                doc = FileContent[0][1].replace("[fecha]", today)\
+                    .replace("[nombre]", user[1])\
+                    .replace("[apellido1]", user[2])\
+                    .replace("[apellido2]", user[3])\
+                    .replace("[cargo]", user[4])\
+                    .replace('[empresa]', user[5])\
+                    .replace('[calle]', user[6])\
+                    .replace('[numeroExt]', user[7])\
+                    .replace('[numeroInt]', f", Numero interior: {user[8]}" if user[8] != "" else "")\
+                    .replace('[colonia]', user[9])\
+                    .replace('[municipio]', user[10])\
+                    .replace('[estado]', user[11])\
+                    .replace('[codigoPostal]', user[12])\
+                    .replace('[telefono]', user[13])\
+                    .replace('[correoElectronico]', user[14])\
+                    .replace('[fechaNacimiento]', user[15].strftime('%d de %B de %Y'))\
+                    .replace('[edad]', str(age))
+                with open(f"./{FileContent[0][0]}_{x}_{user[1]}_{user[2]}.txt", "w") as f:
+                    f.write(doc)
+                x += 1
+
+
+        else:
+            user = self.usuarioComboBox.currentText()
+            userData = self.db.getOneUser([user])
+            print([user])
+            print(userData)
+
+            birthDate = datetime.combine(userData[0][15], time.min)
+            age = datetime.now() - birthDate
+            age = math.floor(int(str(age).split(" ")[0]) / 365)
+            doc = FileContent[0][1].replace("[fecha]", today)\
+                .replace("[nombre]", userData[0][1])\
+                .replace("[apellido1]", userData[0][2])\
+                .replace("[apellido2]", userData[0][3])\
+                .replace("[cargo]", userData[0][4])\
+                .replace('[empresa]', userData[0][5])\
+                .replace('[calle]', userData[0][6])\
+                .replace('[numeroExt]', userData[0][7])\
+                .replace('[numeroInt]', f", Numero interior: {userData[0][8]}" if userData[0][8] != "" else "")\
+                .replace('[colonia]', userData[0][9])\
+                .replace('[municipio]', userData[0][10])\
+                .replace('[estado]', userData[0][11])\
+                .replace('[codigoPostal]', userData[0][12])\
+                .replace('[telefono]', userData[0][13])\
+                .replace('[correoElectronico]', userData[0][14])\
+                .replace('[fechaNacimiento]', userData[0][15].strftime('%d de %B de %Y'))\
+                .replace('[edad]', str(age))
+            with open(f"./{FileContent[0][0]}_{userData[0][1]}_{userData[0][2]}.txt", "w") as f:
+                f.write(doc)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

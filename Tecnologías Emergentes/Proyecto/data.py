@@ -83,7 +83,6 @@ class Data():
        result = cursor.fetchall()
        return result
 
-
     def createNewDoc(self, docData):
         cursor = self.db.cursor()
         sql = "INSERT INTO documentos (titulo, contenido, creacion) VALUES (%s, %s, %s);"
@@ -133,3 +132,20 @@ class Data():
         cursor.execute(sql, value)
         self.db.commit()
         print(cursor.rowcount, "documento(s) eliminado(s).")
+
+    def getUserList(self):
+        cursor = self.db.cursor()
+        cursor.execute("SELECT nombre, apellido_paterno, apellido_materno FROM datos_empleados")
+        result = cursor.fetchall()
+        for row in result:
+            print(row)
+        return result
+
+    def getOneUser(self, nombre):
+        cursor = self.db.cursor()
+        sql = f"SELECT * FROM datos_empleados WHERE concat(nombre, ' ', apellido_paterno, ' ', apellido_materno) = '{nombre[0]}'"
+        print(sql, "\n\n\n")
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        return result
+
