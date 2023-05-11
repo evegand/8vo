@@ -54,8 +54,13 @@ class Main(QMainWindow):
         # New Doc
         self.saveNewDocBtn.clicked.connect(self.guardarDocumento)
         # Update Doc
+        self.tituloComboBox.addItems(list)
         self.findDocBtn.clicked.connect(self.encontrarDocumento)
+        self.saveDocChangesBtn.clicked.connect(self.actualizarDocumento)
         # Remove Doc
+        self.tituloComboBox_2.addItems(list)
+        self.findDocBtn_2.clicked.connect(self.encontrarDocumento_2)
+        self.deleteDocBtn.clicked.connect(self.eliminarDocumento)
     
     def comboBoxIndexChanged(self):
         if self.paraComboBox.currentText() == 'Todos los usuarios':
@@ -276,10 +281,31 @@ class Main(QMainWindow):
         list = [str(item[0]) for item in fileTitles]
         self.archivoComboBox.clear()
         self.archivoComboBox.addItems(list)
+        self.tituloComboBox.clear()
+        self.tituloComboBox.addItems(list)
+        self.tituloComboBox_2.clear()
+        self.tituloComboBox_2.addItems(list)
 
     def encontrarDocumento(self):
-        self.db.getFullDocument(self.tituloLineEdit.text())
-    
+        cont = self.db.getFullDocument([self.tituloComboBox.currentText()])
+        contenido = str(cont[0]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        self.contenidoTextEdit_2.setText(contenido)
+
+    def actualizarDocumento(self):
+        tituloComboBox = self.tituloComboBox.currentText()
+        updatedDoc = {
+            'titulo': tituloComboBox,
+            'contenido': self.contenidoTextEdit_2.toPlainText()
+        }
+
+
+    def encontrarDocumento_2(self):
+        cont = self.db.getFullDocument([self.tituloComboBox_2.currentText()])
+        contenido = str(cont[0]).replace("\\n", "\n").replace("('", "").replace("',)", "")
+        self.contenidoTextEdit_3.setText(contenido)
+
+    def eliminarDocumento(self):
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

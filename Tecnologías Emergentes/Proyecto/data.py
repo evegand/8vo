@@ -105,10 +105,10 @@ class Data():
             print(row)
         return result
     
-    def getFullDocument(self, id):
+    def getFullDocument(self, name):
         cursor = self.db.cursor()
-        sql = "SELECT titulo FROM documentos WHERE id = %s"
-        value = (id)
+        sql = "SELECT contenido FROM documentos WHERE titulo = %s"
+        value = (name)
         cursor.execute(sql, value)
         result = cursor.fetchall()
         return result
