@@ -82,3 +82,44 @@ class Data():
        cursor.execute(sql, value)
        result = cursor.fetchall()
        return result
+
+
+    def createNewDoc(self, docData):
+        cursor = self.db.cursor()
+        sql = "INSERT INTO documentos (titulo, contenido, creacion) VALUES (%s, %s, %s);"
+        values = (
+            docData['title'],
+            docData['content'],
+            docData['created']
+        )
+        cursor.execute(sql, values)
+        self.db.commit()
+        print(cursor.rowcount, "documento(s) insertado(s).")
+
+    def getTitles(self):
+        cursor = self.db.cursor()
+        sql = "SELECT titulo FROM documentos ORDER BY id DESC"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        for row in result:
+            print(row)
+        return result
+    
+    def getFullDocument(self, id):
+        cursor = self.db.cursor()
+        sql = "SELECT titulo FROM documentos WHERE id = %s"
+        value = (id)
+        cursor.execute(sql, value)
+        result = cursor.fetchall()
+        return result
+
+    def updateDocument(self, id, new_data):
+        cursor = self.db.cursor()
+        sql = "UPDATE documentos SET titulo=%s, contenido=%s WHERE id=%s"
+        values = (
+            new_data['titulo'],
+            new_data['contenido']
+        )
+        cursor.execute(sql, values)
+        self.db.commit()
+        print(cursor.rowcount, "registro(s) actualizado(s).")

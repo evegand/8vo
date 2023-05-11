@@ -112,29 +112,6 @@ border-radius: 20px;
            </size>
           </property>
          </widget>
-         <widget class="QPushButton" name="emailsBtn">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>10</y>
-            <width>91</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string> Correo</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>correo.png</normaloff>correo.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>25</width>
-            <height>25</height>
-           </size>
-          </property>
-         </widget>
         </widget>
        </item>
        <item>
@@ -149,7 +126,7 @@ border-radius: 20px;
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="usersView">
              <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,7">
@@ -976,7 +953,7 @@ QPushButton:clicked {
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <widget class="QPushButton" name="saveBtn_2">
+                       <widget class="QPushButton" name="deleteNowBtn">
                         <property name="geometry">
                          <rect>
                           <x>20</x>
@@ -1196,26 +1173,9 @@ border-radius: 20px;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
-                  <widget class="QPushButton" name="createBtn_2">
+                  <widget class="QPushButton" name="correspondenciaBtn">
                    <property name="text">
-                    <string> Agregar</string>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>create.png</normaloff>create.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>23</width>
-                     <height>23</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="readBtn_2">
-                   <property name="text">
-                    <string> Mostrar Lista</string>
+                    <string>Correspondencia</string>
                    </property>
                    <property name="icon">
                     <iconset>
@@ -1230,9 +1190,26 @@ border-radius: 20px;
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="updateBtn_2">
+                  <widget class="QPushButton" name="docNewBtn">
                    <property name="text">
-                    <string> Actualizar</string>
+                    <string>Nuevo Documento</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>create.png</normaloff>create.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>23</width>
+                     <height>23</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="docUpdateBtn">
+                   <property name="text">
+                    <string>Modificar Documento</string>
                    </property>
                    <property name="icon">
                     <iconset>
@@ -1247,7 +1224,7 @@ border-radius: 20px;
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="deleteBtn_2">
+                  <widget class="QPushButton" name="docDeleteBtn">
                    <property name="text">
                     <string> Eliminar</string>
                    </property>
@@ -1278,7 +1255,7 @@ border-radius: 20px;
                     <enum>QFrame::Plain</enum>
                    </property>
                    <property name="lineWidth">
-                    <number>-190</number>
+                    <number>-192</number>
                    </property>
                    <property name="text">
                     <string/>
@@ -1304,30 +1281,344 @@ border-radius: 20px;
                </widget>
               </item>
               <item>
-               <widget class="QFrame" name="docsPage">
+               <widget class="QFrame" name="docsPages">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <widget class="QStackedWidget" name="usersStackedWidget_2">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>561</width>
-                   <height>300</height>
-                  </rect>
-                 </property>
-                 <property name="currentIndex">
-                  <number>1</number>
-                 </property>
-                 <widget class="QWidget" name="usersCreate_2"/>
-                 <widget class="QWidget" name="usersRead_2"/>
-                 <widget class="QWidget" name="usersUpdate_2"/>
-                 <widget class="QWidget" name="usersDelete_2"/>
-                </widget>
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <item>
+                  <widget class="QStackedWidget" name="stackedWidget_2">
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <widget class="QWidget" name="correspondencia">
+                    <layout class="QVBoxLayout" name="verticalLayout_14">
+                     <item>
+                      <widget class="QFrame" name="frame_7">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(255, 190, 111);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_15">
+                        <item>
+                         <layout class="QFormLayout" name="formLayout_5">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="archivoLabel">
+                            <property name="text">
+                             <string>Archivo</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QComboBox" name="archivoComboBox"/>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="paraLabel">
+                            <property name="text">
+                             <string>Para</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QComboBox" name="paraComboBox"/>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="usuarioLabel">
+                            <property name="text">
+                             <string>Usuario</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLineEdit" name="usuarioLineEdit"/>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Crear Correspondencia</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="docNew">
+                    <layout class="QVBoxLayout" name="verticalLayout_16">
+                     <item>
+                      <widget class="QFrame" name="frame_8">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_17">
+                        <item>
+                         <layout class="QFormLayout" name="formLayout_6">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="tituloLabel">
+                            <property name="text">
+                             <string>Titulo</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="tituloLineEdit"/>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_2">
+                          <property name="text">
+                           <string>Contenido</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="contenidoTextEdit"/>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="saveNewDocBtn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>34</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(38, 162, 105);
+color: #FFF;</string>
+                          </property>
+                          <property name="text">
+                           <string>Guardar cambios</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="docUpdate">
+                    <layout class="QVBoxLayout" name="verticalLayout_19">
+                     <item>
+                      <widget class="QFrame" name="frame_9">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_18">
+                        <item>
+                         <widget class="QFrame" name="frame_10">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_7">
+                           <item>
+                            <layout class="QFormLayout" name="formLayout_7">
+                             <item row="0" column="0">
+                              <widget class="QLabel" name="tituloLabel_2">
+                               <property name="text">
+                                <string>Titulo</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="1">
+                              <widget class="QLineEdit" name="tituloLineEdit_2">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>20</height>
+                                </size>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="findDocBtn">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Buscar</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_3">
+                          <property name="text">
+                           <string>Contenido</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="contenidoTextEdit_2"/>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="saveDocChangesBtn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>34</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(26, 95, 180);
+color: #FFF;</string>
+                          </property>
+                          <property name="text">
+                           <string>Guardar cambios</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="docDelete">
+                    <layout class="QVBoxLayout" name="verticalLayout_21">
+                     <item>
+                      <widget class="QFrame" name="frame_11">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_20">
+                        <item>
+                         <widget class="QFrame" name="frame_12">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_8">
+                           <item>
+                            <layout class="QFormLayout" name="formLayout_8">
+                             <item row="0" column="0">
+                              <widget class="QLabel" name="tituloLabel_3">
+                               <property name="text">
+                                <string>Titulo</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="1">
+                              <widget class="QLineEdit" name="tituloLineEdit_3">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>20</height>
+                                </size>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="findDocBtn_2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Buscar</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_4">
+                          <property name="text">
+                           <string>Contenido</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="contenidoTextEdit_3"/>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="deleteDocBtn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>34</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: #FFF;
+background-color: rgb(165, 29, 45);</string>
+                          </property>
+                          <property name="text">
+                           <string>Eliminar Documento</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>

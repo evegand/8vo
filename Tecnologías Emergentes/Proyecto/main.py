@@ -8,6 +8,7 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.uic import loadUi
 from data import Data
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QComboBox
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 class Main(QMainWindow):
@@ -21,7 +22,7 @@ class Main(QMainWindow):
         self.usersBtn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.usersView))
         self.docsBtn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.DocsView))
 
-        # Submenu
+        # Submenu Usuarios
         self.createBtn.clicked.connect(lambda: self.usersStackedWidget.setCurrentWidget(self.usersCreate))
         self.readBtn.clicked.connect(lambda: self.usersStackedWidget.setCurrentWidget(self.usersRead))
         self.updateBtn.clicked.connect(lambda: self.usersStackedWidget.setCurrentWidget(self.usersUpdate))
@@ -36,14 +37,32 @@ class Main(QMainWindow):
         self.saveChangesBtn.clicked.connect(self.actualizarUsuario)
         # Users Delete
         self.userFindBtn2.clicked.connect(self.encontrarUsuario_borrar)
+        self.deleteNowBtn.clicked.connect(self.eliminarUsuario)
 
-        """
-        self.createBtn.clicked.connect(self.usersCreate)
-        self.readBtn.clicked.connect(self.usersRead)
-        self.updateBtn.clicked.connect(self.usersUpdate)
-        self.deleteBtn.clicked.connect(self.usersDelete)
-        """
+        # Submenu Documentos
+        self.correspondenciaBtn.clicked.connect(lambda: self.stackedWidget_2.setCurrentWidget(self.correspondencia))
+        self.docNewBtn.clicked.connect(lambda: self.stackedWidget_2.setCurrentWidget(self.docNew))
+        self.docUpdateBtn.clicked.connect(lambda: self.stackedWidget_2.setCurrentWidget(self.docUpdate))
+        self.docDeleteBtn.clicked.connect(lambda: self.stackedWidget_2.setCurrentWidget(self.docDelete))
+
+        # Correspondencia
+        fileTitles = self.db.getTitles()
+        list = [str(item[0]) for item in fileTitles]
+        self.archivoComboBox.addItems(list)
+        self.paraComboBox.addItems(['Un usuario', 'Todos los usuarios'])
+        self.paraComboBox.currentIndexChanged.connect(self.comboBoxIndexChanged)
+        # New Doc
+        self.saveNewDocBtn.clicked.connect(self.guardarDocumento)
+        # Update Doc
+        self.findDocBtn.clicked.connect(self.encontrarDocumento)
+        # Remove Doc
     
+    def comboBoxIndexChanged(self):
+        if self.paraComboBox.currentText() == 'Todos los usuarios':
+            self.usuarioLineEdit.setEnabled(False)
+        else:
+            self.usuarioLineEdit.setEnabled(True)
+
     def mostrarUsuarios(self):
         datos = self.db.readUsers()
         i = len(datos)
@@ -196,7 +215,7 @@ class Main(QMainWindow):
         self.usersTable_2.setRowCount(i)
         tablerow = 0
         id = 1
-        for row in datos:
+        for row in self.user:
             birthDate = datetime.combine(row[15], time.min)
             age = datetime.now() - birthDate
             age = math.floor(int(str(age).split(" ")[0]) / 365)
@@ -221,6 +240,46 @@ class Main(QMainWindow):
             tablerow += 1
             id += 1
 
+    def eliminarUsuario(self):
+        userId = self.findByIDLineEdit_2.text()
+        if userId != "":
+            alert = QMessageBox()
+            alert.setIcon(QMessageBox.Question)
+            alert.setWindowTitle("Eliminar usuario")
+            alert.setText("¿Estás seguro que deseas realizar esta acción?")
+            alert.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            response = alert.exec()
+
+            if response == QMessageBox.Yes:
+                self.usersTable_2.clearContents()
+                self.usersTable_2.setRowCount(0)
+                self.findByIDLineEdit_2.clear()
+                self.db.deleteUser(userId)
+
+                alert = QMessageBox()
+                alert.setIcon(QMessageBox.Information)
+                alert.setWindowTitle("Usuario eliminado")
+                alert.setText("El usuario ha sido eliminado exitosamente.")
+                alert.setStandardButtons(QMessageBox.Ok)
+                alert.exec_()
+
+
+    def guardarDocumento(self):
+        newDoc = {
+            'title': self.tituloLineEdit.text(),
+            'content': self.contenidoTextEdit.toPlainText(),
+            'created': datetime.now()
+        }
+        print(newDoc)
+        self.db.createNewDoc(newDoc)
+        fileTitles = self.db.getTitles()
+        list = [str(item[0]) for item in fileTitles]
+        self.archivoComboBox.clear()
+        self.archivoComboBox.addItems(list)
+
+    def encontrarDocumento(self):
+        self.db.getFullDocument(self.tituloLineEdit.text())
+    
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
